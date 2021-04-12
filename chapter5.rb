@@ -93,6 +93,161 @@
 
 #Number 6 (Blocks)
 
-my_method do
-  puts "We're in the block!"
+# def my_method(&my_block)
+#   puts "We're in the method, about to invoke your block!"
+#   my_block.call
+#   puts "We're back in the method!"
+#   end
+#
+#   my_method do
+#   puts "We're in the block!"
+#   end
+
+#########################################################################
+
+
+# def chototam(&my_bloc)
+#   puts "11111111"
+#          yield
+#   puts "end of method."
+# end
+#
+# chototam do
+#   puts "We're in the block!"
+# end
+
+#########################################################################
+
+# def print_parameters(p1, p2)
+#   puts p1, p2
+# end
+#
+# print_parameters("one", "two")
+
+###################### Doesn't work ####################################
+
+# def give(&my_block)
+#   my_block.call "2 turtle doves", "1 partridge"
+# end
+#
+# give do |present1, present2|
+#   puts "My method gave to me..."
+#   puts present1, present2
+# end
+
+#########################################################################
+
+# def take_this
+#   yield "present"
+# end
+#
+# take_this do |thing|
+#   puts "do/end block got #{thing}"
+# end
+#
+# take_this { |thing| puts "braces block got #{thing}" }
+
+
+#########################################################################
+
+
+# class Array
+#   def each
+#     index = 0
+#     while index < self.length
+#       yield self[index]
+#       index += 1
+#     end
+#   end
+# end
+#
+# ["a", "b", "c"].each { |param| puts param }
+
+########################################################################
+
+# def total (prices)
+#   amount = 0
+#   prices.each do |price|
+#     amount += price
+#   end
+#   amount
+# end
+#
+# prices = [3.99, 25.00, 8.99]
+# puts format("%50.2f", total(prices))
+
+#####################  How to make with each?????  ##############################
+
+
+# class Array
+#   def each
+#     index = 0
+#     while index < self.length
+#       yield self[index]
+#       index += 1
+#     end
+#   end
+# end
+#
+# each do |prices|
+#   amount += prices
+# end
+#
+# prices = [3.99, 25.00, 8.99]
+# puts format("%.2f", total(prices))
+
+
+#####################################################################
+
+# def total(prices)
+#   amount = 0
+#   prices.each do |price|
+#     amount += price
+#   end
+#   amount
+# end
+#
+# def refund(prices)
+#   amount = 0
+#   prices.each do |price|
+#     amount -= price
+#   end
+#   amount
+# end
+#
+# def show_discounts(prices)
+#   prices.each do |price|
+#     amount_off = price / 3.0
+#     puts format("Youre discount: $%.2f", amount_off)
+#   end
+# end
+#
+# prices = [3.99, 25.00, 8.99]
+#
+# puts format("%.2f", total(prices))
+# puts format("%.2f", refund(prices))
+# show_discounts(prices)
+
+#######################################################################
+
+def pig_latin(words)
+  original_length = 0
+  new_length = 0
+
+  words.each do |word|
+    puts "Original word: #{word}"
+    original_length += word.length
+    letters = word.chars
+    first_letter = letters.shift
+    new_word = "#{letters.join}#{first_letter}ay"
+    puts "Pig Latin word: #{new_word}"
+    new_length += new_word.length
+  end
+
+  puts "Total original length :#{original_length}"
+  puts "Total Pig Latin length: #{new_length}"
+
 end
+
+my_words = ["blocks", "totally", "rock"]
+pig_latin(my_words)
